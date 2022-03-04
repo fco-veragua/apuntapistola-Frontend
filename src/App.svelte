@@ -1,30 +1,25 @@
 <script>
-	export let name;
+	import { Router } from "svelte-routing";
+	import Header from "./Header.svelte";
+	import Main from "./Main.svelte";
+
+	import { setContext } from "svelte";
+
+	const URL = {
+    armas: "https://apuntapistola.herokuapp.com/api/armas/",
+    tiradores: "https://apuntapistola.herokuapp.com/api/tiradores/",
+  };
+
+  setContext("URL", URL);
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<Router>
+	<Header />
+	<Main />
+</Router>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	.backc-nav {
+		background-color: #7a8765;
 	}
 </style>
